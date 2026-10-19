@@ -12,6 +12,7 @@
 <meta property="og:title" content="Замороженная пицца: в духовку на 12 минут">
 <meta property="og:description" content="9 вкусов, онлайн-оплата, доставка. Партнёрам: реферальная ссылка и бонусы с каждого заказа.">
 <meta property="og:url" content="https://web-atelie.ru/internet-magazin-pitstsy/">
+<meta property="og:image" content="https://web-atelie.ru/internet-magazin-pitstsy/assets/p3.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
@@ -198,7 +199,7 @@
   .scroll { max-height: 190px; overflow: auto; }
 
   @media (max-width: 960px) {
-    .hero__in, .partner, .cab__cols { grid-template-columns: 1fr; }
+    .hero__in, .partner, .cab__cols { grid-template-columns: minmax(0, 1fr); }
     .grid, .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .why__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .nav { display: none; }
@@ -278,8 +279,8 @@
     <div class="wrap">
       <h2>Как это работает</h2>
       <div class="steps">
-        <div class="step"><h3>Выберите и оплатите</h3><p>Соберите корзину, оплатите картой или через СБП прямо на сайте. Чек приходит на почту.</p></div>
-        <div class="step"><h3>Получите в морозильной сумке</h3><p>Курьер привезёт заказ в термосумке с хладоэлементами, пицца не успеет разморозиться.</p></div>
+        <div class="step"><h3>Выберите и оплатите</h3><p>Соберите корзину, оплатите картой или через СБП прямо на сайте. Чек придёт по SMS.</p></div>
+        <div class="step"><h3>Получите в термосумке</h3><p>Курьер привезёт заказ в термосумке с хладоэлементами, пицца не успеет разморозиться.</p></div>
         <div class="step"><h3>В духовку и за стол</h3><p>Достаньте пиццу из коробки и поставьте на противень. Через 12 минут можно есть.</p></div>
       </div>
     </div>
@@ -499,7 +500,7 @@
         });
       } else { $('#sbpDone').addEventListener('click', pay); }
     } else {
-      b.innerHTML = '<div class="ok"><i aria-hidden="true">✓</i><h3>Заказ № ' + order.num + ' оплачен</h3><p class="lead" style="margin:0 auto 16px">Доставим ' + esc(order.data.day.toLowerCase()) + ', ' + esc(order.data.time) + ', по адресу: ' + esc(order.data.addr) + '. Чек отправим на почту.</p>' +
+      b.innerHTML = '<div class="ok"><i aria-hidden="true">✓</i><h3>Заказ № ' + order.num + ' оплачен</h3><p class="lead" style="margin:0 auto 16px">Доставим ' + esc(order.data.day.toLowerCase()) + ', ' + esc(order.data.time) + ', по адресу: ' + esc(order.data.addr) + '. Чек отправим по SMS.</p>' +
         (order.bonus ? '<div class="note" style="text-align:left">По приглашению партнёра ' + esc(S.ref) + ' начислен бонус ' + rub(order.bonus) + ' (в демо он появился в кабинете партнёра).</div>' : '') +
         '<button class="btn" type="button" data-close>Вернуться в магазин</button></div>';
     }
@@ -531,7 +532,7 @@
         '<div class="panel" style="margin-bottom:18px"><h4>Вывод бонусов</h4><form class="form" id="outForm" novalidate>' +
           '<label>Сумма, ₽<input name="sum" inputmode="numeric" placeholder="от ' + MIN_OUT + '"><span class="err" data-e="sum"></span></label>' +
           '<label>Способ<select name="method"><option>СБП</option><option>Банковская карта</option></select></label>' +
-          '<label class="full">Телефон или номер карты<input name="req" placeholder="+7 900 000-00-00"><span class="err" data-e="req"></span></label>' +
+          '<label class="full">Телефон или номер карты<input name="req" placeholder="+7 (900) 000-00-00"><span class="err" data-e="req"></span></label>' +
           '<button class="btn full" type="submit">Вывести бонусы</button><p class="full hint" id="outMsg" style="margin:0" role="status"></p></form></div>' +
         '<div class="panel"><h4>Заказы по вашей ссылке</h4><div class="scroll"><table><thead><tr><th>Дата</th><th>Клиент</th><th class="r">Заказ</th><th class="r">Бонус</th></tr></thead><tbody>' +
           P.orders.map(function (o) { return '<tr><td>' + o.date + '</td><td>' + esc(o.who) + (o.state === 'wait' ? ' <span class="pill wait">ожидает</span>' : '') + '</td><td class="r">' + rub(o.sum) + '</td><td class="r">+' + rub(o.bonus) + '</td></tr>'; }).join('') + '</tbody></table></div></div>' +
