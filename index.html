@@ -1,31 +1,584 @@
 <!doctype html>
-<html lang="ru" data-stub>
+<html lang="ru">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Интернет-магазин замороженной пиццы · демо готовится</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Печка · замороженная пицца с доставкой, партнёрская программа</title>
+<meta name="description" content="«Печка»: замороженная пицца ручной работы, 9 вкусов, готова за 12 минут в духовке. Онлайн-оплата, доставка, личный кабинет партнёра с бонусами и реферальной ссылкой.">
 <meta name="robots" content="noindex">
-<meta http-equiv="refresh" content="120">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Manrope:wght@400;600&display=swap">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Печка">
+<meta property="og:title" content="Замороженная пицца: в духовку на 12 минут">
+<meta property="og:description" content="9 вкусов, онлайн-оплата, доставка. Партнёрам: реферальная ссылка и бонусы с каждого заказа.">
+<meta property="og:url" content="https://web-atelie.ru/internet-magazin-pitstsy/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@1,700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%23c8321e%27/%3E%3Cpath d=%27M16 6 5 26h22z%27 fill=%27%23fff3e0%27/%3E%3Ccircle cx=%2713%27 cy=%2720%27 r=%272%27 fill=%27%23c8321e%27/%3E%3Ccircle cx=%2719%27 cy=%2722%27 r=%272%27 fill=%27%23c8321e%27/%3E%3C/svg%3E">
 <style>
-:root{--bg:#F6F3EE;--ink:#1F1E1C;--muted:#6B655C;--acc:#8A6737}
-@media (prefers-color-scheme:dark){:root{--bg:#161615;--ink:#EDE7DC;--muted:#A9A195;--acc:#C9A66B}}
-*{box-sizing:border-box}html,body{height:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Manrope,system-ui,sans-serif;display:grid;place-items:center;padding:24px}
-main{max-width:560px;text-align:center;display:flex;flex-direction:column;gap:18px;align-items:center}
-.k{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);font-weight:600}
-h1{font:500 clamp(2rem,6vw,3rem)/1.1 "Cormorant Garamond",Georgia,serif;margin:0;text-wrap:balance}
-p{margin:0;color:var(--muted)}
-.bar{width:220px;height:3px;background:color-mix(in srgb,var(--acc) 20%,transparent);border-radius:3px;overflow:hidden}
-.bar i{display:block;height:100%;width:40%;background:var(--acc);animation:m 1.6s ease-in-out infinite}
-@keyframes m{0%{transform:translateX(-100%)}100%{transform:translateX(250%)}}
-@media (prefers-reduced-motion:reduce){.bar i{animation:none;width:60%}}
+  :root {
+    --bg: #fff6e8; --surface: #ffffff; --ink: #231815; --soft: #6b5a52; --hair: rgb(35 24 21 / .14);
+    --red: #c8321e; --red-ink: #ffffff; --dark: #231815; --gold: #f3b64b;
+    --r: 18px; --wrap: 1180px;
+    --f-d: "Unbounded", "Arial Black", system-ui, sans-serif; --f-t: "Onest", "Segoe UI", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--f-t); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  button, input, select { font: inherit; color: inherit; }
+  .wrap { width: min(var(--wrap), 100% - 40px); margin-inline: auto; }
+  h1, h2, h3 { font-family: var(--f-d); font-weight: 600; line-height: 1.12; margin: 0; letter-spacing: -.01em; }
+  h2 { font-size: clamp(1.7rem, 1rem + 2.4vw, 2.8rem); }
+  .lead { color: var(--soft); max-width: 56ch; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5em; min-height: 48px; padding: 0 26px; border-radius: 999px; border: 0; background: var(--red); color: var(--red-ink); font-weight: 600; cursor: pointer; text-decoration: none; transition: transform .15s, box-shadow .15s; box-shadow: 0 8px 22px rgb(200 50 30 / .28); }
+  .btn:hover { transform: translateY(-1px); }
+  .btn:focus-visible, .ghost:focus-visible, .icon:focus-visible, input:focus-visible, select:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+  .btn[disabled] { opacity: .5; cursor: default; transform: none; }
+  .ghost { display: inline-flex; align-items: center; gap: .4em; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1.5px solid var(--ink); background: transparent; font-weight: 600; cursor: pointer; text-decoration: none; }
+  .ghost:hover { background: var(--ink); color: var(--bg); }
+
+  /* шапка */
+  .bar { position: sticky; top: 0; z-index: 30; background: rgb(255 246 232 / .92); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid var(--hair); }
+  .bar__in { display: flex; align-items: center; gap: 18px; min-height: 68px; }
+  .logo { font-family: var(--f-d); font-weight: 600; font-size: 1.25rem; text-decoration: none; display: flex; align-items: center; gap: 8px; margin-right: auto; }
+  .logo i { width: 22px; height: 22px; background: var(--red); clip-path: polygon(50% 0, 100% 100%, 0 100%); display: inline-block; }
+  .nav { display: flex; gap: 22px; }
+  .nav a { text-decoration: none; font-weight: 500; font-size: .95rem; padding: 10px 2px; }
+  .nav a:hover { color: var(--red); }
+  .cartbtn { position: relative; }
+  .cartbtn b { display: inline-grid; place-items: center; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 99px; background: #fff; color: var(--red); font-size: .78rem; }
+
+  /* первый экран */
+  .hero { padding: clamp(36px, 6vw, 84px) 0 clamp(40px, 6vw, 80px); overflow: hidden; }
+  .hero__in { display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; }
+  .tag { display: inline-block; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 600; color: var(--red); margin-bottom: 14px; }
+  .hero h1 { font-size: clamp(2.2rem, 1rem + 4.2vw, 4.2rem); }
+  .hero h1 em { font-style: normal; color: var(--red); }
+  .hero p { font-size: 1.15rem; color: var(--soft); max-width: 46ch; margin: 20px 0 28px; }
+  .hero__cta { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+  .hero__facts { display: flex; flex-wrap: wrap; gap: 8px 26px; margin-top: 30px; color: var(--soft); font-size: .95rem; }
+  .hero__facts b { color: var(--ink); }
+  .plate { position: relative; aspect-ratio: 1; width: min(100%, 520px); margin-inline: auto; }
+  .plate img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; box-shadow: 0 30px 70px rgb(35 24 21 / .35); animation: spin 90s linear infinite; }
+  .plate::before { content: ""; position: absolute; inset: -6%; border-radius: 50%; background: radial-gradient(circle, rgb(243 182 75 / .55), transparent 68%); z-index: -1; }
+  .seal { position: absolute; right: -2%; top: 4%; width: 124px; aspect-ratio: 1; border-radius: 50%; background: var(--gold); color: var(--ink); display: grid; place-content: center; text-align: center; transform: rotate(10deg); box-shadow: 0 10px 26px rgb(35 24 21 / .25); margin: 0; }
+  .seal b { font-family: var(--f-d); font-size: 2.1rem; line-height: 1; }
+  .seal span { font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; font-weight: 600; line-height: 1.25; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* меню */
+  section { padding: clamp(44px, 7vw, 92px) 0; }
+  .head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 14px 30px; margin-bottom: 36px; }
+  .head .lead { margin: 0; }
+  .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+  .card { background: var(--surface); border-radius: var(--r); overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 1px 2px rgb(35 24 21 / .06), 0 14px 34px rgb(35 24 21 / .08); }
+  .card__img { aspect-ratio: 1; overflow: hidden; background: #f0e0c8; }
+  .card__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+  .card:hover .card__img img { transform: scale(1.05); }
+  .card__body { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .card h3 { font-size: 1.12rem; }
+  .card p { margin: 0; color: var(--soft); font-size: .95rem; flex: 1; }
+  .badge { align-self: flex-start; font-size: .74rem; font-weight: 600; background: #fde7d9; color: #8d2a14; border-radius: 99px; padding: 3px 10px; }
+  .card__foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 8px; }
+  .price { font-family: var(--f-d); font-weight: 600; font-size: 1.25rem; }
+  .price small { display: block; font-family: var(--f-t); font-weight: 400; font-size: .78rem; color: var(--soft); }
+  .qty { display: inline-flex; align-items: center; border: 1.5px solid var(--ink); border-radius: 999px; overflow: hidden; }
+  .qty button { width: 40px; height: 42px; border: 0; background: transparent; font-size: 1.2rem; cursor: pointer; }
+  .qty button:hover { background: var(--ink); color: var(--bg); }
+  .qty span { min-width: 28px; text-align: center; font-weight: 600; }
+  .addbtn { min-height: 44px; padding: 0 20px; }
+
+  /* плюсы и этапы */
+  .why { background: var(--dark); color: #fff3e0; }
+  .why h2 { color: #fff3e0; }
+  .why__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; margin-top: 40px; }
+  .why__item strong { display: block; font-family: var(--f-d); font-size: 2.1rem; color: var(--gold); line-height: 1; margin-bottom: 12px; }
+  .why__item p { margin: 0; color: #e7d6c0; font-size: .97rem; }
+  .steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 34px; counter-reset: s; }
+  .step { background: var(--surface); border-radius: var(--r); padding: 28px; counter-increment: s; position: relative; }
+  .step::before { content: counter(s); font-family: var(--f-d); font-weight: 600; font-size: 3rem; color: var(--red); opacity: .22; position: absolute; right: 22px; top: 8px; }
+  .step h3 { font-size: 1.15rem; margin-bottom: 10px; }
+  .step p { margin: 0; color: var(--soft); }
+
+  /* партнёрам */
+  .partner { background: linear-gradient(135deg, #c8321e, #8f1f10); color: #fff; border-radius: 28px; padding: clamp(28px, 5vw, 60px); display: grid; grid-template-columns: 1.2fr .8fr; gap: 36px; align-items: center; }
+  .partner h2 { color: #fff; }
+  .partner p { color: #ffe6d6; max-width: 52ch; }
+  .partner .btn { background: #fff; color: var(--red); box-shadow: none; }
+  .partner__nums { display: grid; gap: 14px; }
+  .partner__nums div { background: rgb(255 255 255 / .12); border-radius: 16px; padding: 16px 20px; }
+  .partner__nums b { font-family: var(--f-d); font-size: 1.7rem; display: block; line-height: 1.1; }
+  .partner__nums span { font-size: .9rem; color: #ffe6d6; }
+
+  details { background: var(--surface); border-radius: 14px; padding: 4px 22px; margin-bottom: 12px; box-shadow: 0 1px 2px rgb(35 24 21 / .06); }
+  summary { cursor: pointer; font-weight: 600; padding: 16px 0; list-style: none; display: flex; justify-content: space-between; gap: 14px; }
+  summary::after { content: "+"; font-size: 1.4rem; line-height: 1; color: var(--red); }
+  details[open] summary::after { content: "–"; }
+  details p { margin: 0 0 16px; color: var(--soft); }
+
+  footer { background: var(--dark); color: #e7d6c0; padding: 40px 0 46px; font-size: .95rem; }
+  .foot { display: flex; flex-wrap: wrap; gap: 14px 30px; align-items: center; justify-content: space-between; }
+  .foot a { color: #fff3e0; }
+  .foot__demo { flex-basis: 100%; color: #b8a690; font-size: .88rem; }
+  .foot__made { display: inline-block; white-space: nowrap; font-style: italic; font-size: .95rem; line-height: 1.4; color: #e7d6c0; padding: .4em 0; }
+  .foot__made a { display: inline; margin: 0 0 0 .3em; color: inherit; text-decoration: none; font-family: Calibri, "Carlito", sans-serif; font-weight: 700; font-style: italic; font-size: 1.12em; }
+  .foot__made a:hover { text-decoration: underline; text-underline-offset: .18em; }
+  .foot__made img { display: inline-block; width: 40px; height: 52px; max-width: none; margin-left: .35em; vertical-align: -7px; background: #fff3e0; border-radius: 6px; padding: 2px 4px; }
+
+  /* корзина, окна */
+  .shade { position: fixed; inset: 0; z-index: 40; background: rgb(35 24 21 / .55); opacity: 0; pointer-events: none; transition: opacity .2s; }
+  .shade.on { opacity: 1; pointer-events: auto; }
+  .drawer { position: fixed; top: 0; right: 0; bottom: 0; z-index: 50; width: min(440px, 100%); background: var(--bg); transform: translateX(105%); transition: transform .25s; display: flex; flex-direction: column; box-shadow: -20px 0 50px rgb(35 24 21 / .25); visibility: hidden; }
+  .drawer.on { transform: none; visibility: visible; }
+  .drawer__head, .modal__head { display: flex; align-items: center; justify-content: space-between; padding: 18px 22px; border-bottom: 1px solid var(--hair); }
+  .drawer__head h3, .modal__head h3 { font-size: 1.2rem; }
+  .icon { width: 44px; height: 44px; border-radius: 50%; border: 0; background: transparent; font-size: 1.6rem; cursor: pointer; line-height: 1; }
+  .icon:hover { background: var(--hair); }
+  .drawer__list { flex: 1; overflow: auto; padding: 8px 22px; }
+  .line { display: grid; grid-template-columns: 64px 1fr auto; gap: 14px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--hair); }
+  .line img { width: 64px; height: 64px; border-radius: 12px; object-fit: cover; }
+  .line b { display: block; font-size: .98rem; }
+  .line small { color: var(--soft); }
+  .line .qty button { width: 34px; height: 34px; }
+  .empty { text-align: center; color: var(--soft); padding: 50px 10px; }
+  .drawer__foot { padding: 18px 22px 24px; border-top: 1px solid var(--hair); background: var(--surface); }
+  .drawer__foot:empty { display: none; }
+  .sum { display: flex; justify-content: space-between; font-size: .96rem; padding: 3px 0; color: var(--soft); }
+  .sum.total { color: var(--ink); font-weight: 600; font-size: 1.15rem; padding-top: 10px; }
+  .hint { font-size: .86rem; color: var(--soft); margin: 8px 0 14px; }
+  .modal { position: fixed; inset: 0; z-index: 60; display: none; place-items: center; padding: 16px; }
+  .modal.on { display: grid; }
+  .modal__box { position: relative; z-index: 1; width: min(560px, 100%); max-height: calc(100dvh - 32px); overflow: auto; background: var(--bg); border-radius: 22px; box-shadow: 0 30px 80px rgb(35 24 21 / .4); }
+  .modal__box.wide { width: min(980px, 100%); }
+  .modal__body { padding: 22px; }
+  .modal__bg { position: absolute; inset: 0; background: rgb(35 24 21 / .6); }
+  .form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .form label { display: flex; flex-direction: column; gap: 6px; font-size: .88rem; color: var(--soft); }
+  .form .full { grid-column: 1 / -1; }
+  .form input, .form select { background: #fff; border: 1.5px solid var(--hair); border-radius: 12px; padding: 12px 14px; min-height: 48px; width: 100%; color: var(--ink); }
+  .form input:focus, .form select:focus { border-color: var(--red); outline: none; box-shadow: 0 0 0 3px rgb(200 50 30 / .18); }
+  .form .err { color: #b3261e; font-size: .84rem; min-height: 1em; }
+  .tabs { display: flex; gap: 8px; margin-bottom: 16px; }
+  .tabs button { flex: 1; min-height: 46px; border-radius: 12px; border: 1.5px solid var(--hair); background: #fff; cursor: pointer; font-weight: 600; }
+  .tabs button[aria-selected="true"] { border-color: var(--red); background: #fde7d9; color: #8d2a14; }
+  .qr { width: 168px; height: 168px; margin: 8px auto 14px; display: block; background: #fff; padding: 10px; border-radius: 14px; border: 1.5px solid var(--hair); }
+  .ok { text-align: center; padding: 20px 6px 8px; }
+  .ok i { display: inline-grid; place-items: center; width: 68px; height: 68px; border-radius: 50%; background: #2e7d32; color: #fff; font-size: 2rem; font-style: normal; margin-bottom: 14px; }
+  .ok h3 { margin-bottom: 8px; }
+  .note { background: #fff3cd; border-radius: 12px; padding: 10px 14px; font-size: .88rem; color: #6b5200; margin-bottom: 16px; }
+  .refbar { position: fixed; left: 50%; bottom: 14px; transform: translateX(-50%); z-index: 35; background: var(--dark); color: #fff3e0; border-radius: 999px; padding: 10px 14px 10px 22px; font-size: .92rem; display: none; align-items: center; gap: 12px; box-shadow: 0 10px 30px rgb(35 24 21 / .4); max-width: calc(100% - 24px); }
+  .refbar.on { display: flex; }
+  .refbar button { border: 0; background: rgb(255 255 255 / .14); color: #fff; border-radius: 99px; width: 32px; height: 32px; cursor: pointer; flex: none; }
+
+  /* кабинет партнёра */
+  .cab__top { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-bottom: 18px; }
+  .stat { background: #fff; border-radius: 16px; padding: 16px 18px; border: 1px solid var(--hair); }
+  .stat span { font-size: .84rem; color: var(--soft); }
+  .stat b { display: block; font-family: var(--f-d); font-size: 1.4rem; line-height: 1.2; margin-top: 4px; }
+  .stat.main { background: var(--red); color: #fff; border: 0; }
+  .stat.main span { color: #ffe6d6; }
+  .cab__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .panel { background: #fff; border-radius: 18px; padding: 18px 20px; border: 1px solid var(--hair); }
+  .panel h4 { font-family: var(--f-d); font-size: 1rem; margin: 0 0 12px; font-weight: 600; }
+  .reflink { display: flex; gap: 8px; }
+  .reflink input { flex: 1; min-width: 0; background: var(--bg); border: 1.5px solid var(--hair); border-radius: 12px; padding: 0 12px; min-height: 46px; font-size: .88rem; }
+  .share { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .share a { font-size: .88rem; }
+  table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+  th { text-align: left; font-weight: 500; color: var(--soft); padding: 6px 8px 6px 0; font-size: .8rem; }
+  td { padding: 9px 8px 9px 0; border-top: 1px solid var(--hair); }
+  td.r, th.r { text-align: right; padding-right: 0; }
+  .pill { font-size: .75rem; font-weight: 600; border-radius: 99px; padding: 2px 9px; }
+  .pill.ok2 { background: #dff3e1; color: #1d5e22; }
+  .pill.wait { background: #fff0c2; color: #6b5200; }
+  .scroll { max-height: 190px; overflow: auto; }
+
+  @media (max-width: 960px) {
+    .hero__in, .partner, .cab__cols { grid-template-columns: 1fr; }
+    .grid, .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .why__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .nav { display: none; }
+    .plate { max-width: 420px; }
+  }
+  @media (max-width: 620px) {
+    body { font-size: 16px; }
+    .grid, .steps, .why__grid, .cab__top { grid-template-columns: minmax(0, 1fr); }
+    .form { grid-template-columns: 1fr; }
+    .bar__in { gap: 8px; }
+    .logo { font-size: 1.1rem; }
+    .bar .ghost { padding: 0 12px; font-size: .88rem; }
+    .hm { display: none; }
+    .bar .btn { padding: 0 16px; }
+    .seal { width: 96px; right: 0; } .seal b { font-size: 1.6rem; }
+    .foot__made { font-size: 1rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .plate img { animation: none; } html { scroll-behavior: auto; } * { transition: none !important; } }
 </style>
 </head>
-<body><main>
-<div class="k">Демо-версия по вашему ТЗ</div>
-<h1>Интернет-магазин замороженной пиццы</h1>
-<div class="bar" aria-hidden="true"><i></i></div>
-<p>Сайт сейчас собирается по вашему техническому заданию.<br>Будет готов сегодня к <b>10:52</b> – по этой же ссылке.</p>
-<p style="font-size:.85rem">Страница обновится сама.</p>
-</main></body></html>
+<body>
+
+<header class="bar">
+  <div class="wrap bar__in">
+    <a class="logo" href="#top"><i aria-hidden="true"></i>Печка</a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#menu">Меню</a><a href="#kak">Как это работает</a><a href="#partners">Партнёрам</a><a href="#faq">Вопросы</a>
+    </nav>
+    <button class="ghost" id="openCab" type="button">Кабинет<span class="hm">&nbsp;партнёра</span></button>
+    <button class="btn cartbtn" id="openCart" type="button" aria-label="Открыть корзину">Корзина <b id="cartN">0</b></button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero__in">
+      <div>
+        <span class="tag">Замороженная пицца · доставка</span>
+        <h1>Пицца как из печи: в духовку на <em>12 минут</em></h1>
+        <p>Тесто на закваске, настоящая моцарелла и соус из томатов. Шоковая заморозка сразу после выпечки – вы получаете вкус пиццерии у себя на кухне.</p>
+        <div class="hero__cta">
+          <a class="btn" href="#menu">Выбрать пиццу</a>
+          <a class="ghost" href="#partners">Стать партнёром</a>
+        </div>
+        <div class="hero__facts"><span><b>9</b> вкусов</span><span><b>от 390 ₽</b> за пиццу</span><span><b>бесплатная</b> доставка от 1 500 ₽</span></div>
+      </div>
+      <div class="plate">
+        <img src="assets/p3.webp" alt="Пицца с пепперони и ветчиной на деревянном столе" width="800" height="800" fetchpriority="high">
+        <p class="seal"><b>12</b><span>минут<br>в духовке</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu" style="padding-top:24px">
+    <div class="wrap">
+      <div class="head">
+        <h2>Девять вкусов<br>на любой случай</h2>
+        <p class="lead">Диаметр 30 см. Хранится в морозилке 6 месяцев. Добавляйте в корзину сколько нужно – доставку считаем сами.</p>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section class="why" id="why">
+    <div class="wrap">
+      <h2>Почему «Печка»,<br>а не доставка горячей</h2>
+      <div class="why__grid">
+        <div class="why__item"><strong>12 мин</strong><p>В духовку без разморозки: 220 °C, и горячая пицца на столе. Ждать курьера не нужно.</p></div>
+        <div class="why__item"><strong>−18 °C</strong><p>Шоковая заморозка сразу после выпечки сохраняет текстуру теста и вкус начинки.</p></div>
+        <div class="why__item"><strong>6 мес.</strong><p>Срок хранения в домашней морозилке. Закажите впрок и забудьте про «а что на ужин».</p></div>
+        <div class="why__item"><strong>100 %</strong><p>Натуральный состав: без пальмового масла и сырных заменителей, состав на каждой коробке.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kak">
+    <div class="wrap">
+      <h2>Как это работает</h2>
+      <div class="steps">
+        <div class="step"><h3>Выберите и оплатите</h3><p>Соберите корзину, оплатите картой или через СБП прямо на сайте. Чек приходит на почту.</p></div>
+        <div class="step"><h3>Получите в морозильной сумке</h3><p>Курьер привезёт заказ в термосумке с хладоэлементами, пицца не успеет разморозиться.</p></div>
+        <div class="step"><h3>В духовку и за стол</h3><p>Достаньте пиццу из коробки и поставьте на противень. Через 12 минут можно есть.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="partners" style="padding-top:0">
+    <div class="wrap">
+      <div class="partner">
+        <div>
+          <span class="tag" style="color:#ffd9a8">Партнёрская программа</span>
+          <h2>Приглашайте друзей и получайте бонусы</h2>
+          <p>Получите личную ссылку в кабинете и делитесь ею. С каждого оплаченного заказа по вашей ссылке вам начисляется 10 % бонусами, а другу достаётся скидка 5 %. Бонусы выводятся на карту или по СБП от 500 ₽.</p>
+          <button class="btn" id="openCab2" type="button">Открыть кабинет партнёра</button>
+        </div>
+        <div class="partner__nums">
+          <div><b>10 %</b><span>вам с каждого заказа друга</span></div>
+          <div><b>5 %</b><span>скидка другу на первый заказ</span></div>
+          <div><b>от 500 ₽</b><span>минимальная сумма вывода</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" style="padding-top:0">
+    <div class="wrap" style="max-width:820px">
+      <h2 style="margin-bottom:26px">Частые вопросы</h2>
+      <details><summary>Как долго хранить пиццу?</summary><p>В морозилке при −18 °C – до 6 месяцев. После разморозки повторно замораживать не стоит.</p></details>
+      <details><summary>Нужно ли размораживать перед готовкой?</summary><p>Нет. Достаньте пиццу из упаковки и сразу отправьте в духовку на 12 минут при 220 °C.</p></details>
+      <details><summary>Когда бонусы становятся доступны для вывода?</summary><p>Бонус начисляется после оплаты заказа и становится доступен через 14 дней, когда закончится срок возврата.</p></details>
+      <details><summary>Какие способы оплаты есть?</summary><p>Банковская карта и СБП. Оплата проходит на сайте, данные карты мы не храним.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>Магазин замороженной пиццы «Печка» · <a href="tel:+79000000000">+7 (900) 000-00-00</a> · ежедневно 9:00–21:00</span>
+    <span class="foot__made">Создан в <a href="https://web-atelie.ru/" target="_blank" rel="noopener">«Веб-Ателье»</a><img src="assets/web-atelie.png" alt="" width="40" height="52" loading="lazy" decoding="async"></span>
+    <span class="foot__demo">Демо-концепт интернет-магазина. Название, контакты, цены и данные кабинета партнёра условные, оплата не проводится, фото – из стоковой библиотеки.</span>
+  </div>
+</footer>
+
+<div class="refbar" id="refbar" role="status"><span id="refText"></span><button type="button" id="refClose" aria-label="Скрыть">×</button></div>
+<div class="shade" id="shade"></div>
+
+<!-- корзина -->
+<aside class="drawer" id="drawer" aria-label="Корзина" aria-hidden="true">
+  <div class="drawer__head"><h3>Корзина</h3><button class="icon" type="button" data-close aria-label="Закрыть корзину">×</button></div>
+  <div class="drawer__list" id="cartList"></div>
+  <div class="drawer__foot" id="cartFoot"></div>
+</aside>
+
+<!-- оформление и оплата -->
+<div class="modal" id="mCheckout" role="dialog" aria-modal="true" aria-labelledby="coT">
+  <div class="modal__bg" data-close></div>
+  <div class="modal__box">
+    <div class="modal__head"><h3 id="coT">Оформление заказа</h3><button class="icon" type="button" data-close aria-label="Закрыть">×</button></div>
+    <div class="modal__body" id="coBody"></div>
+  </div>
+</div>
+
+<!-- кабинет партнёра -->
+<div class="modal" id="mCab" role="dialog" aria-modal="true" aria-labelledby="cabT">
+  <div class="modal__bg" data-close></div>
+  <div class="modal__box wide">
+    <div class="modal__head"><h3 id="cabT">Личный кабинет партнёра</h3><button class="icon" type="button" data-close aria-label="Закрыть">×</button></div>
+    <div class="modal__body" id="cabBody"></div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var PRODUCTS = [
+    { id: 1, name: 'Маргарита', img: 'p9', w: 420, price: 390, d: 'Томатный соус, моцарелла, свежий базилик. Классика без лишнего.', tag: 'Хит' },
+    { id: 2, name: 'Пепперони', img: 'p1', w: 450, price: 450, d: 'Острая колбаса пепперони, моцарелла, томатный соус.', tag: 'Хит' },
+    { id: 3, name: 'Ветчина и грибы', img: 'p2', w: 460, price: 470, d: 'Ветчина, шампиньоны, моцарелла и сливочный соус.' },
+    { id: 4, name: 'Мясное ассорти', img: 'p3', w: 500, price: 520, d: 'Пепперони, ветчина, салями и моцарелла на томатной основе.' },
+    { id: 5, name: 'Охотничья', img: 'p8', w: 480, price: 490, d: 'Копчёные колбаски, маслины, лук, моцарелла.' },
+    { id: 6, name: 'Диабло', img: 'p6', w: 450, price: 480, d: 'Халапеньо, острый перец, ветчина и сыр. Для любителей пожарче.', tag: 'Острая' },
+    { id: 7, name: 'Фермерская', img: 'p5', w: 470, price: 460, d: 'Кукуруза, красный лук, перец, моцарелла и сливочный соус.' },
+    { id: 8, name: 'Овощная', img: 'p4', w: 440, price: 430, d: 'Цукини, баклажан, шампиньоны, томаты черри и травы.', tag: 'Без мяса' },
+    { id: 9, name: 'С рукколой', img: 'p7', w: 430, price: 510, d: 'Моцарелла, свежая руккола, красный лук и пармезан.' }
+  ];
+  var CODE = 'PECH-7K3Q', MIN_FREE = 1500, DELIVERY = 199, MIN_OUT = 500;
+  var DEF = {
+    cart: {}, ref: null, refHidden: false, orders: [],
+    partner: {
+      available: 2340, pending: 520, total: 6840, clicks: 184,
+      orders: [
+        { date: '12.10', who: 'Мария К.', sum: 1480, bonus: 148, state: 'ok' },
+        { date: '09.10', who: 'Игорь П.', sum: 2150, bonus: 215, state: 'ok' },
+        { date: '07.10', who: 'Светлана Д.', sum: 960, bonus: 96, state: 'ok' },
+        { date: '03.10', who: 'Антон Р.', sum: 1830, bonus: 183, state: 'ok' }
+      ],
+      payouts: [{ date: '05.10', sum: 3000, method: 'СБП', state: 'ok' }, { date: '21.09', sum: 1500, method: 'Карта', state: 'ok' }]
+    }
+  };
+  var S;
+  function load() { try { S = JSON.parse(localStorage.getItem('pechka_demo')) || null; } catch (e) { S = null; } if (!S) S = JSON.parse(JSON.stringify(DEF)); }
+  function save() { try { localStorage.setItem('pechka_demo', JSON.stringify(S)); } catch (e) {} }
+  load();
+
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var rub = function (n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽'; };
+  var esc = function (s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+  var find = function (id) { return PRODUCTS.filter(function (p) { return p.id === id; })[0]; };
+  var dm = function () { var d = new Date(); return ('0' + d.getDate()).slice(-2) + '.' + ('0' + (d.getMonth() + 1)).slice(-2); };
+
+  /* реферальная ссылка ?ref=КОД: запоминаем */
+  try {
+    var m = /[?&]ref=([A-Za-z0-9-]{4,20})/.exec(location.search);
+    if (m) { S.ref = m[1].toUpperCase(); S.refHidden = false; save(); }
+  } catch (e) {}
+
+  /* ---------- меню ---------- */
+  function renderMenu() {
+    $('#grid').innerHTML = PRODUCTS.map(function (p) {
+      return '<article class="card"><div class="card__img"><img src="assets/' + p.img + '.webp" alt="Пицца «' + esc(p.name) + '»" width="800" height="800" loading="lazy" decoding="async"></div>' +
+        '<div class="card__body">' + (p.tag ? '<span class="badge">' + esc(p.tag) + '</span>' : '') + '<h3>' + esc(p.name) + '</h3><p>' + esc(p.d) + '</p>' +
+        '<div class="card__foot"><span class="price">' + rub(p.price) + '<small>' + p.w + ' г</small></span><span data-slot="' + p.id + '"></span></div></div></article>';
+    }).join('');
+    PRODUCTS.forEach(updateSlot);
+  }
+  function updateSlot(p) {
+    var el = $('[data-slot="' + p.id + '"]'); if (!el) return;
+    var n = S.cart[p.id] || 0;
+    el.innerHTML = n ? '<span class="qty"><button type="button" data-dec="' + p.id + '" aria-label="Убавить">–</button><span aria-live="polite">' + n + '</span><button type="button" data-inc="' + p.id + '" aria-label="Добавить">+</button></span>'
+                     : '<button class="btn addbtn" type="button" data-inc="' + p.id + '">В корзину</button>';
+  }
+
+  /* ---------- корзина ---------- */
+  function totals() {
+    var sub = 0, cnt = 0;
+    Object.keys(S.cart).forEach(function (id) { var p = find(+id); if (p) { sub += p.price * S.cart[id]; cnt += S.cart[id]; } });
+    var disc = S.ref ? Math.round(sub * 0.05) : 0;
+    var after = sub - disc;
+    var del = cnt === 0 ? 0 : (after >= MIN_FREE ? 0 : DELIVERY);
+    return { sub: sub, cnt: cnt, disc: disc, del: del, total: after + del };
+  }
+  function renderCart() {
+    var t = totals(); var ids = Object.keys(S.cart).filter(function (id) { return S.cart[id] > 0 && find(+id); });
+    $('#cartN').textContent = t.cnt;
+    $('#cartList').innerHTML = ids.length ? ids.map(function (id) {
+      var p = find(+id), n = S.cart[id];
+      return '<div class="line"><img src="assets/' + p.img + '.webp" alt="" width="64" height="64"><div><b>' + esc(p.name) + '</b><small>' + rub(p.price) + ' · ' + p.w + ' г</small></div>' +
+        '<span class="qty"><button type="button" data-dec="' + p.id + '" aria-label="Убавить">–</button><span>' + n + '</span><button type="button" data-inc="' + p.id + '" aria-label="Добавить">+</button></span></div>';
+    }).join('') : '<p class="empty">Корзина пока пуста.<br>Выберите пиццу в меню.</p>';
+    var left = MIN_FREE - (t.sub - t.disc);
+    $('#cartFoot').innerHTML = ids.length ?
+      '<div class="sum"><span>Товары</span><span>' + rub(t.sub) + '</span></div>' +
+      (t.disc ? '<div class="sum"><span>Скидка по приглашению 5 %</span><span>−' + rub(t.disc) + '</span></div>' : '') +
+      '<div class="sum"><span>Доставка</span><span>' + (t.del ? rub(t.del) : 'бесплатно') + '</span></div>' +
+      '<div class="sum total"><span>Итого</span><span>' + rub(t.total) + '</span></div>' +
+      (left > 0 ? '<p class="hint">Добавьте ещё на ' + rub(left) + ', и доставка будет бесплатной.</p>' : '<p class="hint">Доставка бесплатная.</p>') +
+      '<button class="btn" type="button" id="goCheckout" style="width:100%">Оформить заказ</button>' : '';
+    PRODUCTS.forEach(updateSlot); save();
+  }
+  function change(id, d) { var n = Math.max(0, Math.min(20, (S.cart[id] || 0) + d)); if (n) S.cart[id] = n; else delete S.cart[id]; renderCart(); }
+
+  /* ---------- окна ---------- */
+  var lastFocus = null;
+  function openD() { lastFocus = document.activeElement; $('#drawer').classList.add('on'); $('#drawer').setAttribute('aria-hidden', 'false'); $('#shade').classList.add('on'); setTimeout(function () { $('#drawer [data-close]').focus(); }, 30); }
+  function closeAll() {
+    $('#drawer').classList.remove('on'); $('#drawer').setAttribute('aria-hidden', 'true'); $('#shade').classList.remove('on');
+    ['#mCheckout', '#mCab'].forEach(function (s) { $(s).classList.remove('on'); });
+    document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  function openM(sel) { lastFocus = document.activeElement; $('#drawer').classList.remove('on'); $('#shade').classList.remove('on'); $(sel).classList.add('on'); document.body.style.overflow = 'hidden'; setTimeout(function () { var f = $(sel + ' input'); if (!f) f = $(sel + ' .icon'); if (f) f.focus(); }, 30); }
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
+
+  /* ---------- оформление ---------- */
+  var order = { step: 1, pay: 'card', data: {} };
+  function renderCheckout() {
+    var t = totals(), b = $('#coBody');
+    if (order.step === 1) {
+      b.innerHTML = '<div class="note">Демо: заказ и оплата условные, деньги не списываются.</div>' +
+        '<form class="form" id="coForm" novalidate>' +
+        '<label>Имя<input name="name" autocomplete="name" required><span class="err" data-e="name"></span></label>' +
+        '<label>Телефон<input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required><span class="err" data-e="phone"></span></label>' +
+        '<label class="full">Адрес доставки<input name="addr" autocomplete="street-address" placeholder="Улица, дом, квартира" required><span class="err" data-e="addr"></span></label>' +
+        '<label>Дата доставки<select name="day"><option>Сегодня</option><option>Завтра</option><option>Послезавтра</option></select></label>' +
+        '<label>Время<select name="time"><option>12:00–15:00</option><option>15:00–18:00</option><option>18:00–21:00</option></select></label>' +
+        '<div class="full sum total"><span>К оплате</span><span>' + rub(t.total) + '</span></div>' +
+        '<button class="btn full" type="submit">Перейти к оплате</button></form>';
+      var ph = $('input[name=phone]', b); ph.addEventListener('input', function () { ph.value = maskPhone(ph.value); });
+      $('#coForm').addEventListener('submit', function (e) {
+        e.preventDefault(); var f = e.target, ok = true, d = {};
+        ['name', 'phone', 'addr'].forEach(function (k) { d[k] = f[k].value.trim(); $('[data-e=' + k + ']', f).textContent = ''; });
+        if (d.name.length < 2) { $('[data-e=name]', f).textContent = 'Введите имя'; ok = false; }
+        if (d.phone.replace(/\D/g, '').length < 11) { $('[data-e=phone]', f).textContent = 'Введите номер полностью'; ok = false; }
+        if (d.addr.length < 6) { $('[data-e=addr]', f).textContent = 'Укажите адрес'; ok = false; }
+        if (!ok) return;
+        d.day = f.day.value; d.time = f.time.value; order.data = d; order.step = 2; renderCheckout();
+      });
+    } else if (order.step === 2) {
+      b.innerHTML = '<div class="note">Демо: платёжная форма условная. Данные никуда не отправляются.</div>' +
+        '<div class="tabs" role="tablist"><button type="button" role="tab" data-pay="card" aria-selected="' + (order.pay === 'card') + '">Банковская карта</button><button type="button" role="tab" data-pay="sbp" aria-selected="' + (order.pay === 'sbp') + '">СБП</button></div>' +
+        (order.pay === 'card' ?
+          '<form class="form" id="payForm" novalidate><label class="full">Номер карты<input name="num" inputmode="numeric" autocomplete="cc-number" placeholder="0000 0000 0000 0000"><span class="err" data-e="num"></span></label>' +
+          '<label>Срок<input name="exp" inputmode="numeric" autocomplete="cc-exp" placeholder="ММ/ГГ"><span class="err" data-e="exp"></span></label>' +
+          '<label>CVC<input name="cvc" inputmode="numeric" autocomplete="cc-csc" placeholder="123" maxlength="3"><span class="err" data-e="cvc"></span></label>' +
+          '<button class="btn full" type="submit">Оплатить ' + rub(t.total) + '</button></form>'
+          : '<div id="sbp"><svg class="qr" viewBox="0 0 21 21" role="img" aria-label="Условный QR-код для оплаты по СБП">' + fakeQr() + '</svg><p class="hint" style="text-align:center">Откройте приложение банка и отсканируйте код. В демо достаточно нажать кнопку ниже.</p><button class="btn" type="button" id="sbpDone" style="width:100%">Я оплатил ' + rub(t.total) + '</button></div>') +
+        '<p class="hint" style="margin-top:14px"><button type="button" class="ghost" id="backStep" style="min-height:38px">← Назад к данным</button></p>';
+      if (order.pay === 'card') {
+        var n = $('input[name=num]', b), x = $('input[name=exp]', b), c = $('input[name=cvc]', b);
+        n.addEventListener('input', function () { n.value = n.value.replace(/\D/g, '').slice(0, 16).replace(/(\d{4})(?=\d)/g, '$1 '); });
+        x.addEventListener('input', function () { var v = x.value.replace(/\D/g, '').slice(0, 4); x.value = v.length > 2 ? v.slice(0, 2) + '/' + v.slice(2) : v; });
+        c.addEventListener('input', function () { c.value = c.value.replace(/\D/g, '').slice(0, 3); });
+        $('#payForm').addEventListener('submit', function (e) {
+          e.preventDefault(); var f = e.target, ok = true; ['num', 'exp', 'cvc'].forEach(function (k) { $('[data-e=' + k + ']', f).textContent = ''; });
+          if (f.num.value.replace(/\D/g, '').length < 16) { $('[data-e=num]', f).textContent = 'Введите 16 цифр'; ok = false; }
+          if (!/^(0[1-9]|1[0-2])\/\d\d$/.test(f.exp.value)) { $('[data-e=exp]', f).textContent = 'ММ/ГГ'; ok = false; }
+          if (f.cvc.value.length < 3) { $('[data-e=cvc]', f).textContent = '3 цифры'; ok = false; }
+          if (ok) pay();
+        });
+      } else { $('#sbpDone').addEventListener('click', pay); }
+    } else {
+      b.innerHTML = '<div class="ok"><i aria-hidden="true">✓</i><h3>Заказ № ' + order.num + ' оплачен</h3><p class="lead" style="margin:0 auto 16px">Доставим ' + esc(order.data.day.toLowerCase()) + ', ' + esc(order.data.time) + ', по адресу: ' + esc(order.data.addr) + '. Чек отправим на почту.</p>' +
+        (order.bonus ? '<div class="note" style="text-align:left">По приглашению партнёра ' + esc(S.ref) + ' начислен бонус ' + rub(order.bonus) + ' (в демо он появился в кабинете партнёра).</div>' : '') +
+        '<button class="btn" type="button" data-close>Вернуться в магазин</button></div>';
+    }
+  }
+  function pay() {
+    var t = totals(); order.num = 1040 + Math.floor(Math.random() * 900); order.bonus = 0;
+    if (S.ref === CODE) {
+      order.bonus = Math.round((t.sub - t.disc) * 0.10); S.partner.pending += order.bonus; S.partner.total += order.bonus;
+      S.partner.orders.unshift({ date: dm(), who: order.data.name, sum: t.total, bonus: order.bonus, state: 'wait' });
+    }
+    S.orders.push({ num: order.num, total: t.total }); S.cart = {}; order.step = 3; renderCart(); renderCheckout();
+  }
+  function maskPhone(v) { var d = v.replace(/\D/g, ''); if (d[0] === '8') d = '7' + d.slice(1); if (d && d[0] !== '7') d = '7' + d; d = d.slice(0, 11); var o = d ? '+7' : ''; if (d.length > 1) o += ' (' + d.slice(1, 4); if (d.length >= 4) o += ') ' + d.slice(4, 7); if (d.length >= 7) o += '-' + d.slice(7, 9); if (d.length >= 9) o += '-' + d.slice(9, 11); return o; }
+  function fakeQr() { var s = '', k = 7; for (var y = 0; y < 21; y++) for (var x = 0; x < 21; x++) { var f = (x < 7 && y < 7) || (x > 13 && y < 7) || (x < 7 && y > 13); var on; if (f) { var lx = x % 14 % 7, ly = y % 14 % 7; on = lx === 0 || lx === 6 || ly === 0 || ly === 6 || (lx > 1 && lx < 5 && ly > 1 && ly < 5); } else { k = (k * 1103515245 + 12345) & 0x7fffffff; on = (k >> 8) % 2 === 0; } if (on) s += '<rect x="' + x + '" y="' + y + '" width="1" height="1"/>'; } return '<g fill="#231815">' + s + '</g>'; }
+
+  /* ---------- кабинет партнёра ---------- */
+  function link() { return location.origin + location.pathname + '?ref=' + CODE; }
+  function renderCab() {
+    var P = S.partner, conv = P.clicks ? Math.round(P.orders.length / P.clicks * 1000) / 10 : 0;
+    $('#cabBody').innerHTML =
+      '<div class="note">Демо-кабинет: данные условные. Откройте реферальную ссылку в этом же браузере и оформите заказ, бонус появится здесь.</div>' +
+      '<div class="cab__top"><div class="stat main"><span>Доступно к выводу</span><b>' + rub(P.available) + '</b></div><div class="stat"><span>Ожидает начисления</span><b>' + rub(P.pending) + '</b></div><div class="stat"><span>Всего начислено</span><b>' + rub(P.total) + '</b></div></div>' +
+      '<div class="cab__cols"><div>' +
+        '<div class="panel" style="margin-bottom:18px"><h4>Ваша реферальная ссылка</h4><div class="reflink"><input id="refInput" readonly value="' + esc(link()) + '" aria-label="Реферальная ссылка"><button class="btn" type="button" id="copyRef" style="min-height:46px;padding:0 18px">Копировать</button></div>' +
+        '<p class="hint" style="margin-bottom:0">Код друга: <b>' + CODE + '</b>. Друг получает скидку 5 %, вы – 10 % бонусами с его заказа.</p>' +
+        '<div class="share"><a class="ghost" target="_blank" rel="noopener" href="https://t.me/share/url?url=' + encodeURIComponent(link()) + '&text=' + encodeURIComponent('Заказывай замороженную пиццу в «Печке», скидка 5 % по моей ссылке') + '">Telegram</a><a class="ghost" target="_blank" rel="noopener" href="https://wa.me/?text=' + encodeURIComponent('Заказывай замороженную пиццу в «Печке», скидка 5 % по моей ссылке: ' + link()) + '">WhatsApp</a></div></div>' +
+        '<div class="panel"><h4>Статистика</h4><div class="cab__top" style="margin:0"><div class="stat"><span>Переходов</span><b>' + P.clicks + '</b></div><div class="stat"><span>Заказов</span><b>' + P.orders.length + '</b></div><div class="stat"><span>Конверсия</span><b>' + String(conv).replace('.', ',') + ' %</b></div></div></div>' +
+      '</div><div>' +
+        '<div class="panel" style="margin-bottom:18px"><h4>Вывод бонусов</h4><form class="form" id="outForm" novalidate>' +
+          '<label>Сумма, ₽<input name="sum" inputmode="numeric" placeholder="от ' + MIN_OUT + '"><span class="err" data-e="sum"></span></label>' +
+          '<label>Способ<select name="method"><option>СБП</option><option>Банковская карта</option></select></label>' +
+          '<label class="full">Телефон или номер карты<input name="req" placeholder="+7 900 000-00-00"><span class="err" data-e="req"></span></label>' +
+          '<button class="btn full" type="submit">Вывести бонусы</button><p class="full hint" id="outMsg" style="margin:0" role="status"></p></form></div>' +
+        '<div class="panel"><h4>Заказы по вашей ссылке</h4><div class="scroll"><table><thead><tr><th>Дата</th><th>Клиент</th><th class="r">Заказ</th><th class="r">Бонус</th></tr></thead><tbody>' +
+          P.orders.map(function (o) { return '<tr><td>' + o.date + '</td><td>' + esc(o.who) + (o.state === 'wait' ? ' <span class="pill wait">ожидает</span>' : '') + '</td><td class="r">' + rub(o.sum) + '</td><td class="r">+' + rub(o.bonus) + '</td></tr>'; }).join('') + '</tbody></table></div></div>' +
+      '</div></div>' +
+      '<div class="panel" style="margin-top:18px"><h4>История выводов</h4><table><thead><tr><th>Дата</th><th>Способ</th><th class="r">Сумма</th><th class="r">Статус</th></tr></thead><tbody>' +
+        (P.payouts.length ? P.payouts.map(function (o) { return '<tr><td>' + o.date + '</td><td>' + esc(o.method) + '</td><td class="r">' + rub(o.sum) + '</td><td class="r"><span class="pill ' + (o.state === 'ok' ? 'ok2' : 'wait') + '">' + (o.state === 'ok' ? 'выплачено' : 'в обработке') + '</span></td></tr>'; }).join('') : '<tr><td colspan="4">Выводов пока не было</td></tr>') + '</tbody></table></div>';
+    $('#copyRef').addEventListener('click', function () {
+      var i = $('#refInput'); i.select();
+      var done = function () { $('#copyRef').textContent = 'Скопировано'; setTimeout(function () { var b = $('#copyRef'); if (b) b.textContent = 'Копировать'; }, 1800); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(i.value).then(done, function () { try { document.execCommand('copy'); done(); } catch (e) {} });
+      else { try { document.execCommand('copy'); done(); } catch (e) {} }
+    });
+    $('#outForm').addEventListener('submit', function (e) {
+      e.preventDefault(); var f = e.target, ok = true; ['sum', 'req'].forEach(function (k) { $('[data-e=' + k + ']', f).textContent = ''; });
+      var sum = parseInt(f.sum.value.replace(/\D/g, ''), 10) || 0;
+      if (sum < MIN_OUT) { $('[data-e=sum]', f).textContent = 'Минимум ' + MIN_OUT + ' ₽'; ok = false; }
+      else if (sum > S.partner.available) { $('[data-e=sum]', f).textContent = 'Доступно только ' + rub(S.partner.available); ok = false; }
+      if (f.req.value.replace(/\D/g, '').length < 10) { $('[data-e=req]', f).textContent = 'Укажите телефон или номер карты'; ok = false; }
+      if (!ok) { $('#outMsg').textContent = ''; return; }
+      S.partner.available -= sum; S.partner.payouts.unshift({ date: dm(), sum: sum, method: f.method.value === 'СБП' ? 'СБП' : 'Карта', state: 'wait' });
+      save(); renderCab(); $('#outMsg').textContent = 'Заявка на вывод ' + rub(sum) + ' принята. В демо деньги не переводятся.';
+    });
+  }
+
+  /* ---------- плашка реферала ---------- */
+  function renderRef() {
+    var on = !!S.ref && !S.refHidden;
+    $('#refbar').classList.toggle('on', on);
+    if (on) $('#refText').textContent = 'Вы пришли по приглашению ' + S.ref + ': скидка 5 % на заказ';
+  }
+
+  /* ---------- события ---------- */
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('button, [data-close]'); if (!t) return;
+    if (t.hasAttribute('data-inc')) { change(+t.getAttribute('data-inc'), 1); return; }
+    if (t.hasAttribute('data-dec')) { change(+t.getAttribute('data-dec'), -1); return; }
+    if (t.hasAttribute('data-close')) { closeAll(); return; }
+    if (t.id === 'openCart') { renderCart(); openD(); return; }
+    if (t.id === 'goCheckout') { order = { step: 1, pay: 'card', data: {} }; renderCheckout(); openM('#mCheckout'); return; }
+    if (t.id === 'openCab' || t.id === 'openCab2') { renderCab(); openM('#mCab'); return; }
+    if (t.hasAttribute('data-pay')) { order.pay = t.getAttribute('data-pay'); renderCheckout(); return; }
+    if (t.id === 'backStep') { order.step = 1; renderCheckout(); return; }
+    if (t.id === 'refClose') { S.refHidden = true; save(); renderRef(); return; }
+  });
+  $('#shade').addEventListener('click', closeAll);
+  renderMenu(); renderCart(); renderRef();
+})();
+</script>
+</body>
+</html>
